@@ -1,0 +1,31 @@
+
+@if(success)
+  {{success}}
+@endif
+
+@if(error)
+  {{error}}
+@endif
+
+<form class="form-horizontal" role="form" method="POST" action="/login">
+  {{ csrfField() }}
+  <div>
+    <label for="email">E-Mail Address</label>
+    <div>
+      <input id="email" type="email" name="email" required>
+    </div>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <div>
+      <input id="password" type="password" name="password" required>
+    </div>
+  </div>
+  <div >
+    <div>
+      <button type="submit">
+        Login
+      </button>
+    </div>
+  </div>
+</form>
