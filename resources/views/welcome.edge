@@ -3,18 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <title>Hello Adonis</title>
-  {{ style('style') }}
 </head>
 <body>
-  <section>
-    <div class="logo"></div>
-    <div class="title"></div>
-    <div class="subtitle">
-      <p>AdonisJs simplicity will make you feel confident about your code</p>
-      <p>
-        Don't know where to start? Read the <a href="https://adonisjs.com/docs">documentation</a>.
-      </p>
-    </div>
-  </section>
+
+  <div id="vantajs" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0;">
+
+</div>
+
+{{script('https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js')}}
+{{script('https://cdn.jsdelivr.net/gh/tengbao/vanta@master/dist/vanta.globe.min.js')}}
+
+<script>
+  
+  VANTA.GLOBE({
+    el: "#vantajs",
+    mouseControls: true,
+    touchControls: true,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    color: 0x30A4E9,
+    color2: 0x30A4E9,
+    backgroundColor: 0x3C434B,
+    size: 1.50
+  });
+
+  </script>
 </body>
 </html>
