@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <section class="hero is-danger is-fullheight">
             <div class="hero-head">
                 <nav class="navbar">
@@ -33,7 +32,7 @@
                                     <span class="icon">
                                         <i class="fas fa-user-plus"></i>
                                     </span>
-                                <span>Sing Up</span>
+                                <span>Sign In</span>
                                 </a>
                                 </span>
                             </div>
