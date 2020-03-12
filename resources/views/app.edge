@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>OWO</title>
-    {{style('https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css')}}
-    {{style('style.css')}}
+    {{ style('vendor/bulma/css/bulma.min.css') }}
+    {{ style('css/style.css') }}
+    {{ style('css/app.css') }}
 </head>
 <body>
     <div id="app"></div>
-    {{ script('/js/main.js') }}
     {{script('https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js')}}
-    {{script('https://cdn.jsdelivr.net/gh/tengbao/vanta@master/dist/vanta.globe.min.js')}}
-    {{script('https://use.fontawesome.com/releases/v5.3.1/js/all.js')}}
+    {{ script('vendor/vanta/js/vanta.globe.min.js') }}
+    {{ script('vendor/font-awesome/js/all.min.js') }}
+
+    {{ script('/js/main.js') }}
 </body>
 </html>

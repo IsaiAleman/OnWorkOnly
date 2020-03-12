@@ -7,7 +7,7 @@
                     <div class="container">
                         <div class="navbar-brand">
                             <a class="navbar-item" href="/">
-                                <img src="../../../../../public/Logo.png" alt="Logo">
+                                <img src="../../../img/Logo.png" alt="Logo">
                             </a>
                         </div>
                         <div id="navbarMenu" class="navbar-menu">

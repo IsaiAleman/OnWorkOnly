@@ -9,3 +9,7 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
+html {
+    overflow-y: auto;
+}

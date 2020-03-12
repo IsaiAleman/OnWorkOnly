@@ -10,10 +10,27 @@ let mix = require('laravel-mix');
  | file for your application, as well as bundling up your JS files.
  |
  */
+const vendorSrc = 'node_modules/';
+const vendor = 'public/vendor/';
+
+const resources = {
+    'bulma': vendorSrc + 'bulma/',
+    'fontawesome': vendorSrc + '@fortawesome/fontawesome-free/',
+    'vanta': vendorSrc + 'vanta/dist/',
+};
 
 mix.setPublicPath('public')
   .js('resources/assets/js/main.js', 'public/js');
 
+// Bulma
+mix.copy(resources.bulma + 'css/', vendor + 'bulma/css');
+
+// FontAwesome
+mix.copy(resources.fontawesome + 'css/all.min.css', vendor + 'font-awesome/css/all.min.css');
+mix.copy(resources.fontawesome + 'js/all.min.js', vendor + 'font-awesome/js/all.min.js');
+
+// VANTA
+mix.copy(resources.vanta + 'vanta.globe.min.js', vendor + 'vanta/js/vanta.globe.min.js');
 
 mix.webpackConfig({
   resolve: {
@@ -29,6 +46,9 @@ mix.webpackConfig({
     }
   }
 });
+
+mix.sass('resources/assets/css/app.sass', 'public/css/app.css');
+
 //mix.js('src/app.js', 'dist/').sass('src/app.scss', 'dist/');
 
 // Full API
