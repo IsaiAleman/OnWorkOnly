@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{csrfToken}}">
     <title>On Work Only</title>
     {{ style('vendor/bulma/css/bulma.min.css') }}
     {{ style('css/style.css') }}
@@ -11,8 +12,12 @@
 </head>
 <body>
     <div id="app"></div>
-    {{script('https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js')}}
+    <!-- Only in three routes are this import -->
+    <!-- TODO: import from component -->
+    {{ script('https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js') }}
     {{ script('vendor/vanta/js/vanta.globe.min.js') }}
+
+    {{ script('vendor/axios/js/axios.min.js') }}
     {{ script('vendor/font-awesome/js/all.min.js') }}
 
     {{ script('/js/main.js') }}

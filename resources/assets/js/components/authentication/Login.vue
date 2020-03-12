@@ -12,13 +12,13 @@
                                     </span>&nbsp;Login
                                 </p>
                             </header>
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" @submit.prevent="login">
                                 <div class="card-content">
                                     <div class="content">
                                         <div class="field">
                                             <label for="" class="label">E-Mail Address</label>
                                             <div class="control has-icons-left">
-                                                <input class="input" id="email" type="email" name="email" placeholder="e.g. bobsmith@gmail.com" required>
+                                                <input class="input" id="email" type="email" name="email" placeholder="e.g. bobsmith@gmail.com" v-model="email" required>
                                                 <span class="icon is-small is-left">
                                                     <i class="fa fa-envelope"></i>
                                                 </span>
@@ -27,7 +27,7 @@
                                         <div class="field">
                                             <label class="label" for="password">Password</label>
                                             <div class="control has-icons-left">
-                                                <input class="input" placeholder="*******" id="password" type="password" name="password" required>
+                                                <input class="input" placeholder="*******" id="password" type="password" name="password" v-model="password" required>
                                                 <span class="icon is-small is-left">
                                                     <i class="fa fa-lock"></i>
                                                 </span>
@@ -58,6 +58,34 @@
 <script>
     export default {
         name: 'Login',
+        data() {
+            return {
+                email: '',
+                password: '',
+            }
+        },
+        beforeRouteEnter(to, from, next) {
+            const token = localStorage.getItem('owo-token');
+
+            return token ? next('/') : next();
+        },
+        methods: {
+            login() {
+                axios.post('/api/login', {
+                        email: this.email,
+                        password: this.password,
+                    })
+                    .then(response => {
+                        localStorage.setItem('owo-token', response.data.data);
+                        this.$router.push('/');
+                    })
+                    .catch(error => {
+                        this.email = this.password = '';
+
+                        console.log(error);
+                    });
+            }
+        },
         mounted() {
             VANTA.GLOBE({
                 el: "#main-canvas",

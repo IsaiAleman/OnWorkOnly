@@ -31,6 +31,7 @@
     "@adonisjs/session": "^1.0.27",
     "@adonisjs/shield": "^1.0.8",
     "@fortawesome/fontawesome-free": "^5.12.1",
+    "axios": "^0.19.2",
     "bulma": "^0.8.0",
     "laravel-mix": "^5.0.1",
     "mysql": "^2.18.1",

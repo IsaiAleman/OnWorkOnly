@@ -14,6 +14,7 @@ const vendorSrc = 'node_modules/';
 const vendor = 'public/vendor/';
 
 const resources = {
+    'axios': vendorSrc + 'axios/dist/',
     'bulma': vendorSrc + 'bulma/',
     'fontawesome': vendorSrc + '@fortawesome/fontawesome-free/',
     'vanta': vendorSrc + 'vanta/dist/',
@@ -21,6 +22,10 @@ const resources = {
 
 mix.setPublicPath('public')
   .js('resources/assets/js/main.js', 'public/js');
+
+// axios
+mix.copy(resources.axios + 'axios.min.js', vendor + 'axios/js/');
+mix.copy(resources.axios + 'axios.min.map', vendor + 'axios/js/');
 
 // Bulma
 mix.copy(resources.bulma + 'css/', vendor + 'bulma/css');
