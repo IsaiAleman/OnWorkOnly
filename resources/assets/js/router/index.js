@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Index from '@/components/Index';
-import About from '@/components/About';
 import Login from '@/components/authentication/Login';
 import Register from '@/components/authentication/Register';
 
@@ -24,11 +23,6 @@ export default new Router({
       path: '/register',
       name: 'Register',
       component: Register
-    },
-    {
-      path: '/about',
-      name: 'About',
-      component: About
     },
   ]
 });
