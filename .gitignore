@@ -14,3 +14,8 @@ database/*.sqlite
 # VSCode & Webstorm history directories
 .history
 .idea
+
+public/mix-manifest.json
+public/js/main.js
+public/vendor/*
+public/css/app.css
