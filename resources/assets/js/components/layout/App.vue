@@ -43,30 +43,32 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'App',
   data() {
-      return {
-          user: null,
-      };
+    return {
+      user: null,
+    };
   },
   mounted() {
-      this.user = localStorage.getItem('owo-token');
+    this.user = localStorage.getItem('owo-token');
   },
   updated() {
-      this.user = localStorage.getItem('owo-token');
+    this.user = localStorage.getItem('owo-token');
   },
   methods: {
-      logout() {
-          axios.get('/api/logout')
-            .then(response => {
-                localStorage.removeItem('owo-token');
-                this.user = null;
-            })
-            .catch(error => {
-                console.log(error);
-            });
-      }
-  }
-}
+    logout() {
+      axios.get('/api/logout')
+        .then(() => {
+          localStorage.removeItem('owo-token');
+          this.user = null;
+        })
+        .catch(() => {
+          // console.log(error);
+        });
+    },
+  },
+};
 </script>

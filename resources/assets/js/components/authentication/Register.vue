@@ -59,49 +59,51 @@
 </template>
 
 <script>
-export default {
-    name: 'Register',
-    data() {
-        return {
-            name: '',
-            email: '',
-            password: ''
-        };
-    },
-    beforeRouteEnter(to, from, next) {
-        const token = localStorage.getItem('owo-token');
+import axios from 'axios';
 
-        return token ? next('/') : next();
-    },
-    methods: {
-        register() {
-            axios.post('/api/register', {
-                name: this.name,
-                email: this.email,
-                password: this.password
-            })
-            .then(response => {
-                this.$router.push('/login');
-            })
-            .catch(error => {
-                console.log(error);
-            })
-        }
-    },
-    mounted() {
-        VANTA.GLOBE({
-            el: "#main-canvas",
-            mouseControls: false,
-            touchControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 3.00,
-            color: 0xF14668,
-            color2: 0xF14668,
-            backgroundColor: 0xffffff,
-            size: 0.7
+export default {
+  name: 'Register',
+  data() {
+    return {
+      name: '',
+      email: '',
+      password: '',
+    };
+  },
+  beforeRouteEnter(to, from, next) {
+    const token = localStorage.getItem('owo-token');
+
+    return token ? next('/') : next();
+  },
+  methods: {
+    register() {
+      axios.post('/api/register', {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+      })
+        .then(() => {
+          this.$router.push('/login');
+        })
+        .catch(() => {
+          // console.log(error);
         });
-    }
-}
+    },
+  },
+  mounted() {
+    VANTA.GLOBE({
+      el: '#main-canvas',
+      mouseControls: false,
+      touchControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 3.00,
+      color: 0xF14668,
+      color2: 0xF14668,
+      backgroundColor: 0xffffff,
+      size: 0.7,
+    });
+  },
+};
 </script>

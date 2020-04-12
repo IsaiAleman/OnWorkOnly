@@ -36,22 +36,22 @@
 </template>
 
 <script>
-    export default {
-        name: 'Index',
-        mounted() {
-            VANTA.GLOBE({
-                el: "#main-canvas",
-                mouseControls: false,
-                touchControls: false,
-                minHeight: 200.00,
-                minWidth: 200.00,
-                scale: 1.00,
-                scaleMobile: 3.00,
-                color: 0xF14668,
-                color2: 0xF14668,
-                backgroundColor: 0xffffff,
-                size: 0.7
-            });
-        }
-    }
+export default {
+  name: 'Index',
+  mounted() {
+    VANTA.GLOBE({
+      el: '#main-canvas',
+      mouseControls: false,
+      touchControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 3.00,
+      color: 0xF14668,
+      color2: 0xF14668,
+      backgroundColor: 0xffffff,
+      size: 0.7,
+    });
+  },
+};
 </script>
