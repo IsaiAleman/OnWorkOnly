@@ -1,9 +1,20 @@
 <template>
-    <router-view></router-view>
+  <div>
+    <Navbar />
+
+    <div class="container is-fluid">
+      <router-view />
+    </div>
+  </div>
 </template>
 
 <script>
+import Navbar from './Navbar.vue';
+
 export default {
-  name: 'App'
-}
+  name: 'App',
+  components: {
+    Navbar
+  },
+};
 </script>
