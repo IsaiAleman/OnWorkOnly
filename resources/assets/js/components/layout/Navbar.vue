@@ -1,5 +1,5 @@
 <template>
-  <b-navbar class="card" fixed-top="true">
+  <b-navbar class="card">
     <template slot="brand">
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
         <img
@@ -12,7 +12,7 @@
     <template slot="end">
         <b-navbar-item tag="div">
             <div class="buttons">
-                <a 
+                <a
                   v-if="user == null"
                   class="button is-light"
                   href="/register"
@@ -49,7 +49,7 @@ export default {
     return { user: null, };
   },
   mounted() {
-    this.user = localStorage.getitem('owo-token');
+    this.user = localStorage.getItem('owo-token');
   },
   updated() {
     this.user = localStorage.getItem('owo-token');
