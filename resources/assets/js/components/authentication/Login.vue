@@ -70,21 +70,13 @@ export default {
     return token ? next('/') : next();
   },
   methods: {
-    login() {
-      axios.post('/api/login', {
-        email: this.email,
-        password: this.password,
-      })
-        .then((response) => {
-          localStorage.setItem('owo-token', response.data.data);
-          this.$router.push('/');
-        })
-        .catch(() => {
-          this.email = '';
-          this.password = '';
+    login(e) {
+      const { email, password } = this;
+      const { dispatch } = this.$store;
 
-          // console.log(error);
-        });
+      if (email && password) {
+          dispatch('authentication/login', { email, password });
+      }
     },
   },
   mounted() {
