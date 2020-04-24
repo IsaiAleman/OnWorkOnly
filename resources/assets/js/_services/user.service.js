@@ -10,8 +10,8 @@ function login(email, password) {
         password: password
     })
         .then((response) => {
-            if (response.data && response.data.data) {
-                localStorage.setItem('owo-token', response.data.data);
+            if (response.data && response.data.token) {
+                localStorage.setItem('owo-token', JSON.stringify(response.data.token));
             }
         })
         .catch((e) => {
@@ -20,11 +20,11 @@ function login(email, password) {
 }
 
 function logout() {
-    localStorage.removeItem('owo-token');
+    return localStorage.removeItem('owo-token');
 }
 
 function register(name, email, password) {
-    axios.post('/api/register', {
+    return axios.post('/api/register', {
         name: name,
         email: email,
         password: password,

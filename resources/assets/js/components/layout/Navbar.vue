@@ -44,27 +44,20 @@
 
 <script>
 export default {
-  name: 'Navbar',
-  data() {
-    return { user: null, };
-  },
-  mounted() {
-    this.user = localStorage.getItem('owo-token');
-  },
-  updated() {
-    this.user = localStorage.getItem('owo-token');
-  },
-  methods: {
-    logout() {
-      axios.get('/api/logout')
-        .then(() => {
-          localStorage.removeItem('owo-token');
-          this.user = null;
-        })
-        .catch(() => {
-          // error
-        });
+    name: 'Navbar',
+    methods: {
+        logout(e) {
+            e.preventDefault();
+            
+            const { dispatch } = this.$store;
+
+            dispatch('authentication/logout');
+        },
     },
-  },
+    computed: {
+      user() {
+          return this.$store.state.authentication.status.loggedIn;
+      }
+    }
 };
 </script>

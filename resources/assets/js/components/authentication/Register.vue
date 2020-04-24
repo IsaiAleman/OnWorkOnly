@@ -68,40 +68,18 @@ export default {
       password: '',
     };
   },
-  beforeRouteEnter(to, from, next) {
-    const token = localStorage.getItem('owo-token');
-
-    return token ? next('/') : next();
-  },
   methods: {
-    register() {
-      axios.post('/api/register', {
-        name: this.name,
-        email: this.email,
-        password: this.password,
-      })
-        .then(() => {
-          this.$router.push('/login');
-        })
-        .catch(() => {
-          // console.log(error);
-        });
+    register(e) {
+        const { name, email, password } = this;
+        const { dispatch } = this.$store;
+
+        if (name && email && password) {
+            dispatch('user/register', { name, email, password });
+        }
     },
   },
   mounted() {
-    VANTA.GLOBE({
-      el: '#main-canvas',
-      mouseControls: false,
-      touchControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 3.00,
-      color: 0xF14668,
-      color2: 0xF14668,
-      backgroundColor: 0xffffff,
-      size: 0.7,
-    });
+
   },
 };
 </script>
