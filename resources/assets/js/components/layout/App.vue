@@ -10,7 +10,7 @@
 
 <script>
 import Navbar from './Navbar.vue';
-
+import 'buefy/dist/buefy.min.css';
 export default {
   name: 'App',
   components: {
