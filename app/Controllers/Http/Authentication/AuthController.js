@@ -6,15 +6,15 @@ class AuthController {
         const { email, password } = request.all();
 
         try {
-            const token = await auth.attempt(email, password);
+            const token = await auth
+                .withRefreshToken()
+                .attempt(email, password);
 
             return response.status(200).json({
-              status: 'success',
-              data: token.id
+                token: token
             });
         } catch (e) {
             return response.status(422).json({
-                status: 'error',
                 m: 'User/Password Mismatch'
             });
         }
@@ -23,7 +23,7 @@ class AuthController {
 
     async logout({ auth, request, response }) {
         // logout user and redirect to main
-        await auth.logout();
+        // await auth.logout();
 
         return response.status(200).json({
             status: 'success'
