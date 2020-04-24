@@ -69,9 +69,6 @@ export default {
 
     return token ? next('/') : next();
   },
-  created() {
-    this.$store.dispatch('authentication/logout');
-  },
   methods: {
     login(e) {
       const { email, password } = this;

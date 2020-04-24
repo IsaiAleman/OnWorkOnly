@@ -12,7 +12,6 @@ function login(email, password) {
         .then((response) => {
             if (response.data && response.data.data) {
                 localStorage.setItem('owo-token', response.data.data);
-                this.$router.push('/');
             }
         })
         .catch((e) => {
@@ -31,7 +30,6 @@ function register(name, email, password) {
         password: password,
     })
         .then(() => {
-            this.$router.push('/login');
         })
         .catch((e) => {
             console.log(e);

@@ -1,7 +1,7 @@
 import { userService } from "../_services";
 import { router } from "../_helpers";
 
-const user = JSON.parse(localStorage.getItem('owo-token'));
+const user = localStorage.getItem('owo-token');
 const initialState = user ? { status: { loggedIn: true }, user } : { status: {}, user: null };
 
 export const authentication = {
@@ -25,6 +25,7 @@ export const authentication = {
         },
         logout({ commit }) {
             userService.logout();
+            router.push('/');
             commit('logout');
         }
     },
