@@ -13,7 +13,6 @@ class RegisterController {
         await user.save();
 
         return response.status(200).json({
-            status: 'success',
             m: 'Registration Successful! Now go ahead and Login'
         });
     }
