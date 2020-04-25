@@ -13,9 +13,11 @@ function login(email, password) {
             if (response.data && response.data.token) {
                 localStorage.setItem('owo-token', JSON.stringify(response.data.token));
             }
+
+            return response;
         })
         .catch((e) => {
-            console.log(e);
+            return e.response;
         });
 }
 
@@ -32,6 +34,7 @@ function register(name, email, password) {
         .then(() => {
         })
         .catch((e) => {
+
             console.log(e);
         });
 }

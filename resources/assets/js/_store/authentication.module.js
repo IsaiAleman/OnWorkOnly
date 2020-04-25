@@ -8,19 +8,20 @@ export const authentication = {
     namespaced: true,
     state: initialState,
     actions: {
-        login({ dispatch, commit }, { email, password }) {
+        login({ dispatch, commit }, { email, password, error }) {
             commit('loginRequest', { email });
 
             userService.login(email, password)
-                .then(
-                    user => {
-                        commit('loginSuccess', user);
+                .then((response) => {
+                    if (response.status == 422) {
+                        commit('loginFailure');
+                        error(response.data.m);
+                    } else {
+                        commit('loginSuccess', { user: response.data });
                         router.push('/');
-                    },
-                    error => {
-                        commit('loginFailure', error);
                     }
-                );
+                });
+
         },
         logout({ commit }) {
             commit('logout');

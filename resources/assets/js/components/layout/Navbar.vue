@@ -48,16 +48,16 @@ export default {
     methods: {
         logout(e) {
             e.preventDefault();
-            
+
             const { dispatch } = this.$store;
 
             dispatch('authentication/logout');
         },
     },
     computed: {
-      user() {
-          return this.$store.state.authentication.status.loggedIn;
-      }
+        user() {
+            return this.$store.state.authentication.status.loggedIn;
+        },
     }
 };
 </script>

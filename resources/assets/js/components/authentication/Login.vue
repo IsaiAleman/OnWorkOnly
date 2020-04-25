@@ -75,7 +75,20 @@ export default {
       const { dispatch } = this.$store;
 
       if (email && password) {
-          dispatch('authentication/login', { email, password });
+          const self = this;
+          dispatch(
+              'authentication/login', {
+                  email,
+                  password,
+                  error: function (m) {
+                      self.$buefy.toast.open({
+                          duration: 5000,
+                          message: m,
+                          position: 'is-bottom',
+                          type: 'is-danger'
+                      });
+                  }
+              });
       }
     },
   },
